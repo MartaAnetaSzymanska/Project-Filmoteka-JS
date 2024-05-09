@@ -1,15 +1,52 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <h1>Example title</h1>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
-  </body>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmoteka</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a class="logo">Filmoteka</a>
+                <ul class="menu">
+                    <li class="menu-item">Home</li>
+                    <li class="menu-item">My library</li>
+                </ul>
+            </nav>
+            <form class="search-form">
+                <label class="search-label">
+                    <input class="search-input" placeholder="Movie search">
+                </label>
+                <button class="search-btn">
+                    <svg class="search-icon">
+                        <use></use>
+                    </svg>
+                </button>
+            </form>
+            <p class="wrong-search"></p>
+            <button class="watched-list"></button>
+            <button class="queue-list"></button>
+        </div>
+    </header>
+    <main>
+        <section class="film-section">
+            <div class="contanier">
+                <ul class="films-gallery"></ul>
+                <button class="back"></button>
+                <button class="forward"></button>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-items">
+                <li class="footer-item"></li>
+                <li class="footer-item"></li>
+                <li class="footer-item"></li>
+            </ul>
+        </div>
+    </footer>
+</body>
 </html>
