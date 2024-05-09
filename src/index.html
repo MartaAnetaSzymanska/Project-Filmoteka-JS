@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./sass/index.scss" />
     <title>Filmoteka</title>
   </head>
   <body>
@@ -32,21 +33,30 @@
     </header>
     <main>
       <section class="film-section">
-        <div class="contanier">
-          <ul class="films-gallery"></ul>
+        <div class="films-container">
+          <ul class="gallery">
+            <li class="movie-block">
+              <div class="image"><img src="" alt="film-image" /></div>
+              <div class="title">*Title*<br />Genre</div>
+            </li>
+
+            <li class="movie-block">
+              <div class="image"><img src="" alt="film-image" /></div>
+              <div class="title">*Title*<br />Genre</div>
+            </li>
+
+            <li class="movie-block">
+              <div class="image"><img src="" alt="film-image" /></div>
+              <div class="title">*Title*<br />Genre</div>
+            </li>
+          </ul>
           <button class="back"></button>
           <button class="forward"></button>
         </div>
       </section>
     </main>
-    <footer class="footer">
-      <div class="container">
-        <ul class="footer-items">
-          <li class="footer-item"></li>
-          <li class="footer-item"></li>
-          <li class="footer-item"></li>
-        </ul>
-      </div>
+    <footer>
+      <include src="./partials/footer.html"></include>
     </footer>
     <script type="module" src="./index.js"></script>
   </body>
