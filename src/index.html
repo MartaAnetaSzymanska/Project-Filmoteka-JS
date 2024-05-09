@@ -4,32 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmoteka</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
+    <link rel="stylesheet" href="./sass/index.scss">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <a class="logo">Filmoteka</a>
-                <ul class="menu">
-                    <li class="menu-item">Home</li>
-                    <li class="menu-item">My library</li>
-                </ul>
-            </nav>
-            <form class="search-form">
-                <label class="search-label">
-                    <input class="search-input" placeholder="Movie search">
-                </label>
-                <button class="search-btn">
-                    <svg class="search-icon">
-                        <use></use>
-                    </svg>
-                </button>
-            </form>
-            <p class="wrong-search"></p>
-            <button class="watched-list"></button>
-            <button class="queue-list"></button>
-        </div>
-    </header>
+    <include src="./partials/header.html">
     <main>
         <section class="film-section">
             <div class="contanier">
