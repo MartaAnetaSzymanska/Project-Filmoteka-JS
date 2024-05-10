@@ -4,14 +4,43 @@
 
 .footer {
     background-color: #F7F7F7;
-    padding: 61px 0 54px;
+    padding: 47px 0 0;
     height: 100px;
     box-sizing: content-box;
     font-size: 14px;
     color: #545454;
+
+    text-align: center;
+    position: sticky;
+}
+
+.footer-text{
+    margin: 0 auto;
+        word-wrap: break-word;
+    max-width: 260px;
+}
+
+@media screen and (min-width: 768px) {
+    .footer{
+            max-width: 768px;
+            
+    }
+    .footer-text{
+        max-width: 768px;
+        margin: 16px auto;
+    }
+    
+}
+
+@media screen and (min-width: 1280px){
+    .footer{
+        max-width: 1280px;
+    }
+
 }
 .footer-text{
     display: flex;
     text-align: center;
+
     
 }
