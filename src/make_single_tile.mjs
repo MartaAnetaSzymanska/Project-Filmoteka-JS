@@ -14,23 +14,23 @@ const getGenres = async () => {
 
 //funkcja zwracająca stringa gatunków po przecinku dostające tablicę genres IDs
 
-const makeGenresString = (array) => {
+const makeGenresString = async (array) => {
   const gensArray = [];
   let genres; //tablica obiektów z IDs
-  getGenres().then((data) => {
+  await getGenres().then((data) => {
     genres = data;
     array.forEach((val) => {
       const element = genres.find((gen) => gen.id === val);
       gensArray.push(element.name);
     });
-    return gensArray.join(', ');
   });
+  return gensArray.join(', ');
 };
 
 //funkcja generująca pojedynczy kafelek filmu
 
-export const makeSingleFilmTile = (film) => {
-  const genres = makeGenresString(film.genre_ids); //film.genre_ids to tablica IDs gatunków
+export const makeSingleFilmTile = async (film) => {
+  const genres = await makeGenresString(film.genre_ids); //film.genre_ids to tablica IDs gatunków
 
   const year = film.release_date.slice(0, 4);
   return `
