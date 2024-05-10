@@ -9,6 +9,7 @@
     box-sizing: content-box;
     font-size: 14px;
     color: #545454;
+
     text-align: center;
     position: sticky;
 }
@@ -35,5 +36,11 @@
     .footer{
         max-width: 1280px;
     }
+
+}
+.footer-text{
+    display: flex;
+    text-align: center;
+
     
 }
