@@ -35,13 +35,13 @@ export const makeSingleFilmTile = async (film) => {
 
   const year = film.release_date.slice(0, 4);
   return `
-  <li class="film-tile">
-  <div class="film-poster"><img src="https://image.tmdb.org/t/p/original${
+  <li class="movie-block">
+  <div class="image"><img src="https://image.tmdb.org/t/p/original${
     film.poster_path
   }" alt="${film.title} poster"/></div>
   <div class="film-info>
-  <p class="film-title">${film.title.toUpperCase()}</p>
-  <p class="film-details">${genres} | ${year}</p>
+  <p class="title">${film.title.toUpperCase()}</p>
+  <p class="genre">${genres} | ${year}</p>
   </div>
   </li>`;
 };
