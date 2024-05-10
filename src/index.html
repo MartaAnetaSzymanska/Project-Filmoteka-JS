@@ -5,49 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./sass/index.scss" />
     <title>Filmoteka</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <nav class="nav">
-          <a class="logo">Filmoteka</a>
-          <ul class="menu">
-            <li class="menu-item">Home</li>
-            <li class="menu-item">My library</li>
-          </ul>
-        </nav>
-        <form class="search-form">
-          <label class="search-label">
-            <input class="search-input" placeholder="Movie search" />
-          </label>
-          <button class="search-btn">
-            <svg class="search-icon">
-              <use></use>
-            </svg>
-          </button>
-        </form>
-        <p class="wrong-search"></p>
-        <button class="watched-list"></button>
-        <button class="queue-list"></button>
-      </div>
-    </header>
+    <link rel="stylesheet" href="./sass/index.scss">
+</head>
+<body>
+    <include src="./partials/header.html">
     <main>
       <section class="film-section">
         <div class="films-container">
           <ul class="gallery">
             <li class="movie-block">
-              <div class="image"><img src="" alt="film-image" /></div>
-              <div class="title">*Title*<br />Genre</div>
+              <div class="image">
+                <img src="/src/images/test-image.jpeg" alt="film-image" />
+              </div>
+              <p class="title">*Title*</p>
+              <p class="genre">*Genre*</p>
             </li>
 
             <li class="movie-block">
-              <div class="image"><img src="" alt="film-image" /></div>
-              <div class="title">*Title*<br />Genre</div>
+              <div class="image">
+                <img src="/src/images/test-image.jpeg" alt="film-image" />
+              </div>
+              <p class="title">*Title*</p>
+              <p class="genre">*Genre*</p>
             </li>
 
             <li class="movie-block">
-              <div class="image"><img src="" alt="film-image" /></div>
-              <div class="title">*Title*<br />Genre</div>
+              <div class="image">
+                <img src="/src/images/test-image.jpeg" alt="film-image" />
+              </div>
+              <p class="title">*Title*</p>
+              <p class="genre">*Genre*</p>
             </li>
           </ul>
           <button class="back"></button>
