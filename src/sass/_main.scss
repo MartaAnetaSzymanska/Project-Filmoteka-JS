@@ -52,7 +52,22 @@
 }
 
 @media screen and (max-width: 768px) {
-}
+  .gallery {
+    margin-top: 59px;
+  }
 
-@media screen and (max-width: 768px) {
+  .second-g {
+    margin-top: calc(60px - 28px);
+  }
+
+  .movie-block img {
+    width: 336px;
+    height: 494px;
+  }
+
+  .second-mb {
+    margin-left: 32px;
+  }
+}
+@media screen and (max-width: 320px) {
 }
