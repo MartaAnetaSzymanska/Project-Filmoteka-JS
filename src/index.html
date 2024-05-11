@@ -1,49 +1,17 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="./sass/index.scss"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./sass/index.scss" />
     <title>Filmoteka</title>
-    <link rel="stylesheet" href="./sass/index.scss"/>
-</head>
-<body>
+    <link rel="stylesheet" href="./sass/index.scss" />
+  </head>
+  <body>
     <include src="./partials/header.html"></include>
-    <main>
-      <section class="film-section">
-        <div class="films-container">
-          <ul class="gallery">
-            <li class="movie-block">
-              <div class="image">
-                <img src="/src/images/test-image.jpeg" alt="film-image" />
-              </div>
-              <p class="title">*Title*</p>
-              <p class="genre">*Genre*</p>
-            </li>
-            
-            <li class="movie-block">
-              <div class="image">
-                <img src="/src/images/test-image.jpeg" alt="film-image" />
-              </div>
-              <p class="title">*Title*</p>
-              <p class="genre">*Genre*</p>
-            </li>
-
-            <li class="movie-block">
-              <div class="image">
-                <img src="/src/images/test-image.jpeg" alt="film-image" />
-              </div>
-              <p class="title">*Title*</p>
-              <p class="genre">*Genre*</p>
-            </li>
-          </ul>
-          <button class="back"></button>
-          <button class="forward"></button>
-        </div>
-      </section>
-    </main>
-        <include src="./partials/footer.html"></include>
-  <!-- <include src="./partials/modal.html"></include> -->
+    <include src="./partials/main.html"></include>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/modal.html"></include>
     <script defer type="module" src="./scripts/index.js"></script>
   </body>
 </html>
