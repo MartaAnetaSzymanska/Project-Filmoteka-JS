@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "description": "",
   "homepage": "https://MartaAnetaSzymanska.github.io/Project-Filmoteka-JS",
-  "scripts": {
+  "type": "module",
+    "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /Project-Filmoteka-JS/"
   },
