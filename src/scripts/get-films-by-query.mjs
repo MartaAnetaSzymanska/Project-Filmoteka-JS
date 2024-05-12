@@ -7,7 +7,6 @@ export const getFilmsByQueryString = async (string) => {
       `https://api.themoviedb.org/3/search/movie?query=${string}&api_key=6822ab68b639c8d7f457546b90aae724`
     )
     .then((response) => {
-      console.log(response.data);
       return response.data;
     });
 };
