@@ -38,7 +38,7 @@ export const makeSingleFilmTile = async (film) => {
   <div class="image"><img src="https://image.tmdb.org/t/p/original${
     film.poster_path
   }" alt="${film.title} poster"/></div>
-  <div class="film-info>
+  <div class="film-info" id="${film.id}">
   <p class="title">${film.title.toUpperCase()}</p>
   <p class="genre">${genres} | ${year}</p>
   </div>
