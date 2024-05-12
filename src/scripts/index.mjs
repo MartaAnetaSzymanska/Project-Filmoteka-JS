@@ -1,7 +1,10 @@
 import { makeSingleFilmTile } from './make_single_tile.mjs';
 import { getTrendingFilms } from './get-trending.mjs';
+import { getFilmsByQueryString } from './get-films-by-query.mjs';
+// GET TRENDING
 
 const gallery = document.querySelector('ul.gallery');
+
 getTrendingFilms().then(async (data) => {
   gallery.innerHTML = '';
   const results = data.results;
@@ -9,4 +12,15 @@ getTrendingFilms().then(async (data) => {
     const newTile = await makeSingleFilmTile(results[i]);
     gallery.insertAdjacentHTML('beforeend', newTile);
   }
+});
+
+//GET FILMS BY QUERY STRING
+
+const searchForm = document.querySelector('form.search-form');
+
+searchForm.addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  const queryString = ev.target.elements.searchinput.value;
+  const getFilms = await getFilmsByQueryString(queryString);
+  gallery.innerHTML = '';
 });
