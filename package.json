@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://MartaAnetaSzymanska.github.io/Project-Filmoteka-JS",
   "type": "module",
-    "scripts": {
+  "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /Project-Filmoteka-JS/"
   },
@@ -21,7 +21,8 @@
   "dependencies": {
     "axios": "^1.6.8",
     "include": "^1.1.0",
-    "modern-normalize": "^1.1.0"
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.7"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
