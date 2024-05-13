@@ -1,8 +1,6 @@
 .gallery {
   margin-top: 60px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
 
 .movie-block {
@@ -11,11 +9,13 @@
   border-radius: 5px;
   overflow: hidden;
 }
+
 .movie-block img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .title {
   margin-top: 12px;
   font-family: Roboto;
@@ -32,4 +32,17 @@
   font-weight: 500;
   line-height: 24px;
   text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+  .gallery {
+    display: inline-table;
+    margin-top: 59px;
+  }
+
+  .movie-block {
+    width: 336px;
+    height: 494px;
+    border-radius: 5px;
+  }
 }
