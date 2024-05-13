@@ -3,7 +3,7 @@ export const apiKey = '6822ab68b639c8d7f457546b90aae724';
 
 //zapytanie pozyskujące tablice obiektów z gatunkami
 
-const genresQuery = `http://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
+const genresQuery = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
 
 const getGenres = async () => {
   return await axios.get(genresQuery).then((response) => {
@@ -38,7 +38,7 @@ export const makeSingleFilmTile = async (film) => {
   <div class="image"><img src="https://image.tmdb.org/t/p/original${
     film.poster_path
   }" alt="${film.title} poster"/></div>
-  <div class="film-info>
+  <div class="film-info" id="${film.id}">
   <p class="title">${film.title.toUpperCase()}</p>
   <p class="genre">${genres} | ${year}</p>
   </div>
