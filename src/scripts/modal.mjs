@@ -17,11 +17,11 @@ function toggleModal() {
 // ------------pobieranie API------------
 
 let filmId;
-let vote;
-let votes;
-let popularity;
-let about;
-let genre;
+// let vote;
+// let votes;
+// let popularity;
+// let about;
+// let genre;
 
 const list = document.querySelector('ul.modal-film-features-list');
 
