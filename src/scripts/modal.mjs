@@ -30,26 +30,29 @@ galleryList.addEventListener('click', async (ev) => {
   const children = parent.querySelector('.film-info');
   const image = ev.target.src;
   filmId = children.id;
-
-  getFilmDetails(filmId)
+  const getDetails = await getFilmDetails(filmId);
+  console.log(getDetails);
+  getDetails
     .then((data) => {
       console.log(data);
-      vote = data.vote_average;
-      votes = data.vote_count;
-      popularity = data.popularity;
-      about = data.overview;
-      let genresArray = data.genres;
-      genre = genresArray.join(' ');
-      console.log(genre);
+      // vote = data.vote_average;
+      // votes = data.vote_count;
+      // popularity = data.popularity;
+      // about = data.overview;
+      // let genresArray = data.genres;
+      // genre = genresArray.join(' ');
+      // console.log(genre);
     })
     .catch((error) => console.log(error));
 });
-// --------funckja pobierania danych filmu-------
+// --------funkcja pobierania danych filmu-------
 
 async function getFilmDetails(filmId) {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/${filmId}?api_key=${apiKey}`
-  );
-  return response.data;
+  const response = await axios
+    .get(`https://api.themoviedb.org/3/movie/${filmId}?api_key=${apiKey}`)
+    .then((response) => {
+      console.log(response.data);
+      return response.data;
+    });
 }
 //-------funkcja dodawania elementów filmu------
