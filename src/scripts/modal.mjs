@@ -17,13 +17,25 @@ function toggleModal() {
 // ------------pobieranie API------------
 
 let filmId;
-// let vote;
-// let votes;
-// let popularity;
-// let about;
-// let genre;
-
+const filmTitle = document.querySelector('h1.modal-film-title');
+const vote = document.querySelector('span.vote-data');
+const votes = document.querySelector('span.votes-data');
+const popularity = document.querySelector('div.modal-popularity-data');
+const originalTitle = document.querySelector('div.modal-original-title-data');
+const genres = document.querySelector('div.modal-genre-data');
+const about = document.querySelector('p.about-title-data');
+const filmImage = document.querySelector('div.modal-image img');
 const list = document.querySelector('ul.modal-film-features-list');
+
+//funkcja generowania stringa z IDs
+
+const generateGenresString = (genresArray) => {
+  const array = [];
+  genresArray.forEach((element) => {
+    array.push(element.name);
+  });
+  return array.join(', ');
+};
 
 galleryList.addEventListener('click', async (ev) => {
   const parent = ev.target.closest('.movie-block');
@@ -31,21 +43,16 @@ galleryList.addEventListener('click', async (ev) => {
   const image = ev.target.src;
   filmId = children.id;
   const getDetails = await getFilmDetails(filmId);
-  console.log(getDetails);
   // Uzyskiwanie danych filmu bezpośrednio z getFilmDetails
   if (getDetails) {
-    getDetails
-      .then((data) => {
-        console.log(data);
-        // vote = data.vote_average;
-        // votes = data.vote_count;
-        // popularity = data.popularity;
-        // about = data.overview;
-        // let genresArray = data.genres;
-        // genre = genresArray.join(' ');
-        // console.log(genre);
-      })
-      .catch((error) => console.log(error));
+    filmImage.src = `https://image.tmdb.org/t/p/original${getDetails.poster_path}`;
+    filmTitle.innerText = getDetails.title;
+    vote.innerText = getDetails.vote_average;
+    votes.innerText = getDetails.vote_count;
+    popularity.innerText = getDetails.popularity;
+    originalTitle.innerText = getDetails.original_title;
+    about.innerText = getDetails.overview;
+    genres.innerText = generateGenresString(getDetails.genres);
   }
 });
 
@@ -53,16 +60,13 @@ galleryList.addEventListener('click', async (ev) => {
 
 async function getFilmDetails(filmId) {
   try {
-    const response = await axios
-      .get(`https://api.themoviedb.org/3/movie/${filmId}?api_key=${apiKey}`)
-      .then((response) => {
-        console.log(response.data);
-        return response.data;
-      });
-  } catch {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${filmId}?api_key=${apiKey}`
+    );
+    return response.data;
+  } catch (error) {
     Notify.failure('Wystąpił błąd podczas pobierania szczegółów filmu.');
     console.error('Błąd podczas pobierania szczegółów filmu:', error);
     return null;
   }
 }
-//-------funkcja dodawania elementów filmu------
