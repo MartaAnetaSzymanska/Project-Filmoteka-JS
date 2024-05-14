@@ -28,9 +28,9 @@
     max-width: 1280px;
     height: 230px;
     margin: 0 auto;
-    position: sticky;
-    top: -1;
-    z-index: 1;
+    // position: sticky;
+    // top: -1;
+    // z-index: 1;
 }
 
 .nav {
@@ -79,6 +79,7 @@
 
 .menu-item:hover, .menu-item:focus {
     color: #fff;
+    text-decoration: none;
 }
 
 .is-active::after {
@@ -199,9 +200,9 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        position: sticky;
-        top: 0;
-        z-index: 1;
+        // position: sticky;
+        // top: 0;
+        // z-index: 1;
     }
 
     .header, .header-library {
@@ -222,10 +223,12 @@
         transition-property: color;
         transition-duration: 450ms;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
     }
 
     .logo-text:hover, .logo-text:focus {
         color: #fff;
+        text-decoration: none;
     }
 
     .search-form {
