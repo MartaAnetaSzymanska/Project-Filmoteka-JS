@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { apiKey } from './make_single_tile.mjs';
-
+import { Notify } from 'notiflix';
 // ----------otwieranie/zamykanie Modala-----------
 
 const galleryList = document.querySelector('ul.gallery');
@@ -32,27 +32,37 @@ galleryList.addEventListener('click', async (ev) => {
   filmId = children.id;
   const getDetails = await getFilmDetails(filmId);
   console.log(getDetails);
-  getDetails
-    .then((data) => {
-      console.log(data);
-      // vote = data.vote_average;
-      // votes = data.vote_count;
-      // popularity = data.popularity;
-      // about = data.overview;
-      // let genresArray = data.genres;
-      // genre = genresArray.join(' ');
-      // console.log(genre);
-    })
-    .catch((error) => console.log(error));
+  // Uzyskiwanie danych filmu bezpośrednio z getFilmDetails
+  if (getDetails) {
+    getDetails
+      .then((data) => {
+        console.log(data);
+        // vote = data.vote_average;
+        // votes = data.vote_count;
+        // popularity = data.popularity;
+        // about = data.overview;
+        // let genresArray = data.genres;
+        // genre = genresArray.join(' ');
+        // console.log(genre);
+      })
+      .catch((error) => console.log(error));
+  }
 });
+
 // --------funkcja pobierania danych filmu-------
 
 async function getFilmDetails(filmId) {
-  const response = await axios
-    .get(`https://api.themoviedb.org/3/movie/${filmId}?api_key=${apiKey}`)
-    .then((response) => {
-      console.log(response.data);
-      return response.data;
-    });
+  try {
+    const response = await axios
+      .get(`https://api.themoviedb.org/3/movie/${filmId}?api_key=${apiKey}`)
+      .then((response) => {
+        console.log(response.data);
+        return response.data;
+      });
+  } catch {
+    Notify.failure('Wystąpił błąd podczas pobierania szczegółów filmu.');
+    console.error('Błąd podczas pobierania szczegółów filmu:', error);
+    return null;
+  }
 }
 //-------funkcja dodawania elementów filmu------
