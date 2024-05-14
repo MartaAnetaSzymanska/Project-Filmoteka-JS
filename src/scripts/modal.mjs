@@ -3,7 +3,7 @@ import { apiKey } from './make_single_tile.mjs';
 import { Notify } from 'notiflix';
 // ----------otwieranie/zamykanie Modala-----------
 
-const galleryList = document.querySelector('ul.gallery__container');
+const galleryList = document.querySelector('ul.gallery');
 const modal = document.querySelector('[data-modal]');
 const closeBtn = document.querySelector('[modal-close]');
 
@@ -17,7 +17,6 @@ function toggleModal() {
 // ------------pobieranie API------------
 
 let filmId;
-
 const filmTitle = document.querySelector('h2.modal-film-title');
 const vote = document.querySelector('b.vote-data');
 const votes = document.querySelector('b.votes-data');
