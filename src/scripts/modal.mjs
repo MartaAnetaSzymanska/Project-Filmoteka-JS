@@ -3,7 +3,7 @@ import { apiKey } from './make_single_tile.mjs';
 import { Notify } from 'notiflix';
 // ----------otwieranie/zamykanie Modala-----------
 
-const galleryList = document.querySelector('ul.gallery');
+const galleryList = document.querySelector('ul.gallery__container');
 const modal = document.querySelector('[data-modal]');
 const closeBtn = document.querySelector('[modal-close]');
 

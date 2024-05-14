@@ -134,11 +134,6 @@ $laptop: 1280px;
       -webkit-transform: skewX(-25deg);
       transform: skewX(-25deg);
     }
-    &:hover::before,
-    &:focus::before {
-      -webkit-animation: shine 0.75s;
-      animation: shine 0.75s;
-    }
   }
 
   @media screen and (min-width: $laptop) {
