@@ -24,7 +24,7 @@ const popularity = document.querySelector('div.modal-popularity-data');
 const originalTitle = document.querySelector('div.modal-original-title-data');
 const genres = document.querySelector('div.modal-genre-data');
 const about = document.querySelector('p.about-title-data');
-const filmImage = document.querySelector('div.modal-image img');
+const filmImage = document.querySelector('div.image img');
 const list = document.querySelector('ul.modal-film-features-list');
 
 //funkcja generowania stringa z IDs
