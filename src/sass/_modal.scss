@@ -1,0 +1,62 @@
+.backdrop {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  width: 80%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.modal-film {
+  padding: 48px 20px;
+  background-color: white;
+}
+.modal-film-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 10px;
+}
+.close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 19px;
+  right: 19px;
+  background-color: transparent;
+  border: none;
+}
+.modal-film-title {
+  font-weight: 500px;
+  font-size: 20px;
+  line-height: 23.44px;
+}
+.modal-film-titles-item {
+  color: #8c8c8c;
+  font-size: 12px;
+  line-height: 16px;
+}
+.add-film-btn {
+  min-width: 110px;
+  height: 44px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+}
+.about-title {
+  font-size: 12px;
+  line-height: 16px;
+}
+.modal-film-features {
+  display: flex;
+  gap: 40px;
+}
