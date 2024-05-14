@@ -161,7 +161,7 @@ button {
     }
   }
 }
-.movie-container__card {
+.movie-block {
   cursor: pointer;
   overflow: hidden;
   border-radius: var(--border-radius);
@@ -211,7 +211,7 @@ button {
     width: calc((100% - 2 * 16px) / 3);
   }
 }
-.poster {
+.image {
   border-radius: var(--border-radius);
   overflow: hidden;
   width: 280px;
@@ -234,7 +234,7 @@ button {
   }
 }
 
-.movieInfo {
+.film-info {
   padding: 10px;
   max-width: 350px;
 
