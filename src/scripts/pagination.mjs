@@ -1,4 +1,5 @@
 import { getTrendingFilms } from './get-trending';
+import { makeSingleFilmTile } from './make_single_tile.mjs';
 
 const filmsContainer = document.getElementById('films-container');
 const pagination = document.getElementById('pagination');
@@ -10,19 +11,13 @@ async function displayFilms(page) {
   try {
     const response = await getTrendingFilms(page);
     const films = response.results;
+    console.log(films);
     filmsContainer.innerHTML = '';
 
-    films.forEach((film) => {
-      const filmTile = document.createElement('div');
-      filmTile.classList.add('col-6', 'col-md-4', 'col-lg-3', 'mb-3');
-
-      const image = document.createElement('img');
-      image.src = `https://image.tmdb.org/t/p/w500/${film.poster_path}`;
-      image.alt = film.title;
-
-      filmTile.appendChild(image);
-      filmsContainer.appendChild(filmTile);
-    });
+    for (const film of films) {
+      const filmTileHTML = await makeSingleFilmTile(film);
+      filmsContainer.insertAdjacentHTML('beforeend', filmTileHTML);
+    }
 
     const totalPages = response.total_pages;
     createPagination(totalPages);
