@@ -6,6 +6,8 @@ import { Notify } from 'notiflix';
 const galleryList = document.querySelector('ul.gallery');
 const modal = document.querySelector('[data-modal]');
 const closeBtn = document.querySelector('[modal-close]');
+const addWatched = document.querySelector(".add-watched-btn");
+const addQueue = document.querySelector(".add-queue-btn");
 
 galleryList.addEventListener('click', toggleModal);
 modal.addEventListener('click', toggleModal);
@@ -47,6 +49,9 @@ galleryList.addEventListener('click', async (ev) => {
   if (getDetails) {
     filmImage.src = `https://image.tmdb.org/t/p/original${getDetails.poster_path}`;
     filmTitle.innerText = getDetails.title;
+    filmTitle.dataset.title = getDetails.title;
+    addWatched.dataset.id = filmId;
+    addQueue.dataset.id = filmId;
     vote.innerText = getDetails.vote_average;
     votes.innerText = getDetails.vote_count;
     popularity.innerText = getDetails.popularity;
