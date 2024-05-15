@@ -33,14 +33,13 @@ export const makeSingleFilmTile = async (film) => {
   const genres = await makeGenresString(film.genre_ids); //film.genre_ids to tablica IDs gatunków
 
   const year = film.release_date.slice(0, 4);
-  return `
-  <li class="movie-block">
-  <div class="image"><img src="https://image.tmdb.org/t/p/original${
+  return `<li class="movie-block">
+  <div class="image"><img class="image__img" src="https://image.tmdb.org/t/p/original${
     film.poster_path
   }" alt="${film.title} poster"/></div>
   <div class="film-info" id="${film.id}">
-  <p class="title">${film.title.toUpperCase()}</p>
-  <p class="genre">${genres} | ${year}</p>
+  <p class="film-info__item film-info--title">${film.title.toUpperCase()}</p>
+  <p class="film-info__item">${genres} | ${year}</p>
   </div>
   </li>`;
 };
