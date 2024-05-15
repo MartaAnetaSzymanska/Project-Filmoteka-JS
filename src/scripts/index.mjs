@@ -10,11 +10,10 @@ Notify.init({
   cssAnimationStyle: 'zoom',
 });
 // GET TRENDING
-let page = 1;
 
 const gallery = document.querySelector('ul.gallery');
 
-getTrendingFilms(page)
+getTrendingFilms()
   .then(async (data) => {
     gallery.innerHTML = '';
     const results = data.results;
@@ -29,13 +28,14 @@ getTrendingFilms(page)
   });
 
 //GET FILMS BY QUERY STRING
+
 const searchForm = document.querySelector('form.search-form');
 
 searchForm.addEventListener('submit', async (ev) => {
   ev.preventDefault();
   const queryString = ev.target.elements.searchinput.value;
   gallery.innerHTML = '';
-  getFilmsByQueryString(queryString, page)
+  getFilmsByQueryString(queryString)
     .then(async (data) => {
       gallery.innerHTML = '';
       const results = data.results;
