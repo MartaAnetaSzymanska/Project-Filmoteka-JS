@@ -1,7 +1,8 @@
 import axios from "axios";
 import { Notify } from "notiflix";
 import { apiKey } from "./make_single_tile.mjs";
-import { getFilmsByQueryString } from "./get-films-by-query.mjs";
+import { getFilmDetails } from "./modal.mjs";
+import { makeSingleFilmTile } from "./make_single_tile.mjs";
 
 const addWatched = document.querySelector(".add-watched-btn");
 const addQueue = document.querySelector(".add-queue-btn");
@@ -32,7 +33,15 @@ addQueue.addEventListener("click", handleAddToQueue);
 
 
 // const watchArr = JSON.parse(localStorage.getItem('watchedFilms'));
-// watchArr.forEach(element => {
+// const queueArr = JSON.parse(localStorage.getItem('queueFilms'));
+
+
+
+
+// watchArr.forEach(async (element) => {
+//     await getFilmDetails(element);
 // });
 
-
+// queueArr.forEach(async (element) => {
+//     await getFilmDetails(element);
+// });
