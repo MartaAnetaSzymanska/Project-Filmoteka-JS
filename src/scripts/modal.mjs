@@ -3,7 +3,7 @@ import { apiKey } from './make_single_tile.mjs';
 import { Notify } from 'notiflix';
 // ----------otwieranie/zamykanie Modala-----------
 
-const galleryList = document.querySelector('ul.gallery');
+const galleryList = document.querySelector('ul.gallery__container');
 const modal = document.querySelector('[data-modal]');
 const closeBtn = document.querySelector('[modal-close]');
 const addWatched = document.querySelector(".add-watched-btn");
@@ -19,13 +19,14 @@ function toggleModal() {
 // ------------pobieranie API------------
 
 let filmId;
-const filmTitle = document.querySelector('h1.modal-film-title');
-const vote = document.querySelector('span.vote-data');
-const votes = document.querySelector('span.votes-data');
-const popularity = document.querySelector('div.modal-popularity-data');
-const originalTitle = document.querySelector('div.modal-original-title-data');
-const genres = document.querySelector('div.modal-genre-data');
-const about = document.querySelector('p.about-title-data');
+
+const filmTitle = document.querySelector('h2.modal-film-title');
+const vote = document.querySelector('b.vote-data');
+const votes = document.querySelector('b.votes-data');
+const popularity = document.querySelector('b.modal-popularity-data');
+const originalTitle = document.querySelector('b.modal-original-title-data');
+const genres = document.querySelector('b.modal-genre-data');
+const about = document.querySelector('b.about-title-data');
 const filmImage = document.querySelector('div.modal-image img');
 const list = document.querySelector('ul.modal-film-features-list');
 
