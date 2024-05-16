@@ -5,8 +5,8 @@ const trendingQuery = `https://api.themoviedb.org/3/trending/movie/day?api_key=$
 
 //UWAGA - wywoływać z await!!!!
 
-export const getTrendingFilms = async (page) => {
-  return await axios.get(`${trendingQuery}&page=${page}`).then((response) => {
+export const getTrendingFilms = async () => {
+  return await axios.get(trendingQuery).then((response) => {
     return response.data;
   });
 };
