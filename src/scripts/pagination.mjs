@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const previousPageLink = document.createElement('a');
     previousPageLink.classList.add('page-link');
     previousPageLink.href = '#';
-    previousPageLink.textContent = 'Previous';
+    previousPageLink.textContent = '<';
     previousPageLink.addEventListener('click', (event) => {
       event.preventDefault();
       if (currentPage > 1) {
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextPageLink = document.createElement('a');
     nextPageLink.classList.add('page-link');
     nextPageLink.href = '#';
-    nextPageLink.textContent = 'Next';
+    nextPageLink.textContent = '>';
     nextPageLink.addEventListener('click', (event) => {
       event.preventDefault();
       if (currentPage < totalPages) {
