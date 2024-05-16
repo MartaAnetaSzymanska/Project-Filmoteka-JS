@@ -6,16 +6,34 @@ import { Notify } from 'notiflix';
 const galleryList = document.querySelector('ul.gallery__container');
 const modal = document.querySelector('[data-modal]');
 const closeBtn = document.querySelector('[modal-close]');
-const addWatched = document.querySelector(".add-watched-btn");
-const addQueue = document.querySelector(".add-queue-btn");
+const addWatched = document.querySelector('.add-watched-btn');
+const addQueue = document.querySelector('.add-queue-btn');
+const body = document.querySelector('body');
 
 galleryList.addEventListener('click', toggleModal);
-modal.addEventListener('click', toggleModal);
+closeBtn.addEventListener('click', toggleModal);
+document.addEventListener('click', closeModal);
+document.addEventListener('keydown', (ev) => {
+  if (ev.key === 'Escape' && !modal.classList.contains('is-hidden')) {
+    toggleModal();
+  }
+});
 
 function toggleModal() {
   modal.classList.toggle('is-hidden');
+  document.addEventListener('click', closeModal);
+  console.log('openModal');
 }
-
+function closeModal(event) {
+  if (
+    !modal.classList.contains('is-hidden') &&
+    !galleryList.contains(event.target) &&
+    !modal.contains(event.target)
+  ) {
+    toggleModal();
+    document.removeEventListener('click', closeModal);
+  }
+}
 // ------------pobieranie API------------
 
 let filmId;
