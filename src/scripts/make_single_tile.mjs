@@ -1,26 +1,36 @@
 import axios from 'axios';
 export const apiKey = '6822ab68b639c8d7f457546b90aae724';
+import Loader from './loader';
 
 //zapytanie pozyskujące tablice obiektów z gatunkami
 
 const genresQuery = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
 
 const getGenres = async () => {
-  return await axios.get(genresQuery).then((response) => {
+  try {
+    Loader.show(); // Pokazanie loadera
+    const response = await axios.get(genresQuery);
+    Loader.hide(); // Ukrycie loadera po zakończeniu zapytania
     return response.data.genres;
-  });
+  } catch (error) {
+    Loader.hide(); // Ukrycie loadera w przypadku błędu
+    console.error('Error fetching genres:', error);
+    throw error;
+  }
 };
 
 //funkcja zwracająca stringa gatunków po przecinku dostające tablicę genres IDs
 
 const makeGenresString = async (array) => {
   const gensArray = [];
-  let genres; //tablica obiektów z IDs
+  let genres; // Tablica obiektów z IDs
   await getGenres().then((data) => {
     genres = data;
     array.forEach((val) => {
       const element = genres.find((gen) => gen.id === val);
-      gensArray.push(element.name);
+      if (element) {
+        gensArray.push(element.name);
+      }
     });
   });
   return gensArray.join(', ');
