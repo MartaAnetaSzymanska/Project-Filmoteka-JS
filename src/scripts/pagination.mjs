@@ -1,14 +1,15 @@
 import { getTrendingFilms } from './get-trending';
+import { getFilmsByQueryString } from './get-films-by-query.mjs';
 import { makeSingleFilmTile } from './make_single_tile';
 
 document.addEventListener('DOMContentLoaded', () => {
   const filmsContainer = document.getElementById('films-container');
   const pagination = document.getElementById('pagination');
+  const searchForm = document.querySelector('form.search-form');
+  const input = document.getElementById('search-input');
 
-  if (!filmsContainer || !pagination) {
-    console.error(
-      'Cannot find elements with id "films-container" or "pagination"'
-    );
+  if (!filmsContainer || !pagination || !searchForm || !input) {
+    console.error('Cannot find essential elements');
     return;
   }
 
@@ -16,21 +17,38 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentPage = 1;
 
   async function displayFilms(page) {
-    try {
-      const response = await getTrendingFilms(page);
-      const films = response.results;
-      console.log(films);
-      filmsContainer.innerHTML = '';
+    if (input.value === '') {
+      try {
+        const response = await getTrendingFilms(page);
+        const films = response.results;
+        filmsContainer.innerHTML = '';
 
-      for (const film of films) {
-        const filmTileHTML = await makeSingleFilmTile(film);
-        filmsContainer.insertAdjacentHTML('beforeend', filmTileHTML);
+        for (const film of films) {
+          const filmTileHTML = await makeSingleFilmTile(film);
+          filmsContainer.insertAdjacentHTML('beforeend', filmTileHTML);
+        }
+
+        const totalPages = response.total_pages;
+        createPagination(totalPages);
+      } catch (error) {
+        console.error('Wystąpił błąd podczas pobierania danych:', error);
       }
+    } else {
+      try {
+        const response = await getFilmsByQueryString(input.value, page);
+        const films = response.results;
+        filmsContainer.innerHTML = '';
 
-      const totalPages = response.total_pages;
-      createPagination(totalPages);
-    } catch (error) {
-      console.error('Wystąpił błąd podczas pobierania danych:', error);
+        for (const film of films) {
+          const filmTileHTML = await makeSingleFilmTile(film);
+          filmsContainer.insertAdjacentHTML('beforeend', filmTileHTML);
+        }
+
+        const totalPages = response.total_pages;
+        createPagination(totalPages);
+      } catch (error) {
+        console.error('Wystąpił błąd podczas pobierania danych:', error);
+      }
     }
   }
 
@@ -53,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const previousPageLink = document.createElement('a');
     previousPageLink.classList.add('page-link');
     previousPageLink.href = '#';
-    previousPageLink.textContent = '<';
+    previousPageLink.textContent = 'Previous';
     previousPageLink.addEventListener('click', (event) => {
       event.preventDefault();
       if (currentPage > 1) {
@@ -93,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextPageLink = document.createElement('a');
     nextPageLink.classList.add('page-link');
     nextPageLink.href = '#';
-    nextPageLink.textContent = '>';
+    nextPageLink.textContent = 'Next';
     nextPageLink.addEventListener('click', (event) => {
       event.preventDefault();
       if (currentPage < totalPages) {
@@ -104,6 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
     nextPageItem.appendChild(nextPageLink);
     pagination.appendChild(nextPageItem);
   }
+
+  searchForm.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    currentPage = 1;
+    displayFilms(currentPage);
+  });
 
   displayFilms(currentPage);
 });
