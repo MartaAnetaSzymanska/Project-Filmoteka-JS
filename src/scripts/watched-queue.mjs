@@ -45,13 +45,3 @@ const handleAddToWatched = () => {
 addWatched.addEventListener("click", handleAddToWatched);
 addQueue.addEventListener("click", handleAddToQueue);
 
-// const watchArr = JSON.parse(localStorage.getItem('watchedFilms'));
-// const queueArr = JSON.parse(localStorage.getItem('queueFilms'));
-
-// watchArr.forEach(async (element) => {
-//     await getFilmDetails(element);
-// });
-
-// queueArr.forEach(async (element) => {
-//     await getFilmDetails(element);
-// });

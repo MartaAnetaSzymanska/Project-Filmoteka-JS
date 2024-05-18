@@ -3,6 +3,8 @@ import { Notify } from "notiflix";
 import { apiKey } from "./make_single_tile.mjs";
 import { makeSingleFilmTile } from "./make_single_tile.mjs";
 
+const watchedBtn = document.querySelector(".watched-btn");
+const queueBtn = document.querySelector(".queue-btn");
 
 async function getFilmDetails(filmId) {
     try {
@@ -20,9 +22,34 @@ async function getFilmDetails(filmId) {
 const watchArr = JSON.parse(localStorage.getItem('watchedFilms'));
 const queueArr = JSON.parse(localStorage.getItem('queueFilms'));
 
-document.addEventListener("DOMContentLoaded", ev => {
-watchArr.forEach(async (element) => {
-    await getFilmDetails(element);
-    makeSingleFilmTile(element);
-});
+document.addEventListener("DOMContentLoaded", async () => {
+    const gallery = document.querySelector(".movies-gallery");
+    if (!gallery) {
+        console.error("Target container not found.");
+        return;
+    }
+    watchedBtn.addEventListener("click", async () => {
+      gallery.innerHTML = "";
+      queueBtn.classList.remove("active-btn");
+      watchedBtn.classList.add("active-btn");
+      for (const element of watchArr) {
+          const filmDetails = await getFilmDetails(element);
+          if (filmDetails) {
+              const filmTile = await makeSingleFilmTile(filmDetails);
+              gallery.innerHTML += filmTile;
+          }
+      }
+  });
+  queueBtn.addEventListener("click", async () => {
+    gallery.innerHTML = "";
+    watchedBtn.classList.remove("active-btn");
+    queueBtn.classList.add("active-btn");
+    for (const element of queueArr) {
+        const filmDetails = await getFilmDetails(element);
+        if (filmDetails) {
+            const filmTile = await makeSingleFilmTile(filmDetails);
+            gallery.innerHTML += filmTile;
+        }
+    }
+  });
 });

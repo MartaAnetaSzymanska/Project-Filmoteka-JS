@@ -22,6 +22,10 @@ const getGenres = async () => {
 //funkcja zwracająca stringa gatunków po przecinku dostające tablicę genres IDs
 
 const makeGenresString = async (array) => {
+  if (!array || array.length === 0) {
+    return "";
+  }
+  
   const gensArray = [];
   let genres; // Tablica obiektów z IDs
   await getGenres().then((data) => {
