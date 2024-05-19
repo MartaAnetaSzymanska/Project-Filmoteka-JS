@@ -11,12 +11,20 @@ const addQueue = document.querySelector(".add-queue-btn");
 const handleAddToWatched = () => {
     const filmTitle = document.querySelector(".modal-film-title").dataset.title;
     const filmId = addQueue.dataset.id;
+
     const addToLocalStorage = (film, key) => {
         let films = JSON.parse(localStorage.getItem(key)) || [];
+        let queueFilms = JSON.parse(localStorage.getItem('queueFilms')) || [];
+
         if (films.includes(film)) {
             Notify.failure(`${filmTitle} is already watched!`);
             return false;
-        } else {
+        } 
+        if (queueFilms.includes(film)) {
+            Notify.failure(`${filmTitle} is already in on the queue!`);
+            return false;
+        }
+        else {
         Notify.success(`${filmTitle} is added to watched list!`);
         films.push(film);
         localStorage.setItem(key, JSON.stringify(films));
@@ -28,8 +36,14 @@ const handleAddToWatched = () => {
     const handleAddToQueue = () => {
         const filmTitle = document.querySelector(".modal-film-title").dataset.title;
         const filmId = addQueue.dataset.id;
+
         const addToLocalStorage = (film, key) => {
             let films = JSON.parse(localStorage.getItem(key)) || [];
+            let watchedFilms = JSON.parse(localStorage.getItem('watchedFilms')) || [];
+            if (watchedFilms.includes(film)) {
+                Notify.failure(`${filmTitle} is already in on the queue!`);
+                return false;
+            }
             if (films.includes(film)) {
                 Notify.failure(`${filmTitle} is already in on the queue!`);
                 return false;
