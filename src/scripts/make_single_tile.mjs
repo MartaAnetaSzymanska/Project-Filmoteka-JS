@@ -41,7 +41,10 @@ const makeGenresString = async (array) => {
 
 export const makeSingleFilmTile = async (film) => {
   let genres = film.genre_ids;
+<<<<<<< Updated upstream
   
+=======
+>>>>>>> Stashed changes
   if (film.genres && film.genres.length > 0) {
     genres = film.genres.map(genre => genre.name).join(', ');
   } else {
