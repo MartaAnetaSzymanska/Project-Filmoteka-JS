@@ -22,6 +22,10 @@ const getGenres = async () => {
 //funkcja zwracająca stringa gatunków po przecinku dostające tablicę genres IDs
 
 const makeGenresString = async (array) => {
+  if (!array || array.length === 0) {
+    return "";
+  }
+  
   const gensArray = [];
   let genres; // Tablica obiektów z IDs
   await getGenres().then((data) => {
@@ -40,8 +44,13 @@ const makeGenresString = async (array) => {
 //UWAGA - wywoływać z await!!!!
 
 export const makeSingleFilmTile = async (film) => {
-  const genres = await makeGenresString(film.genre_ids); //film.genre_ids to tablica IDs gatunków
-
+  let genres = film.genre_ids;
+  
+  if (film.genres && film.genres.length > 0) {
+    genres = film.genres.map(genre => genre.name).join(', ');
+  } else {
+    genres = await makeGenresString(film.genre_ids); //film.genre_ids to tablica IDs gatunków
+  }
   const year = film.release_date.slice(0, 4);
   return `<li class="movie-block">
   <div class="image"><img class="image__img" src="https://image.tmdb.org/t/p/original${

@@ -82,7 +82,7 @@ galleryList.addEventListener('click', async (ev) => {
 
 // --------funkcja pobierania danych filmu-------
 
-async function getFilmDetails(filmId) {
+export async function getFilmDetails(filmId) {
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/${filmId}?api_key=${apiKey}`
