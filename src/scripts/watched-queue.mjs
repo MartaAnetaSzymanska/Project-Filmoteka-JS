@@ -41,7 +41,7 @@ const handleAddToWatched = () => {
             let films = JSON.parse(localStorage.getItem(key)) || [];
             let watchedFilms = JSON.parse(localStorage.getItem('watchedFilms')) || [];
             if (watchedFilms.includes(film)) {
-                Notify.failure(`${filmTitle} is already in on the queue!`);
+                Notify.failure(`${filmTitle} is already watched!`);
                 return false;
             }
             if (films.includes(film)) {
