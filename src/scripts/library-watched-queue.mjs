@@ -1,11 +1,13 @@
 import axios from "axios";
 import { Notify } from "notiflix";
 import { apiKey } from "./make_single_tile.mjs";
-import { getFilmDetails } from "./modal.mjs";
+import { getFilmDetails } from "./modal-library.mjs";
 import { makeSingleFilmTile } from "./make_single_tile.mjs";
+import { renderQueue, renderWatched } from "./library.mjs";
 
 const addWatched = document.querySelector(".add-watched-btn");
 const addQueue = document.querySelector(".add-queue-btn");
+
 
 
 const handleAddToWatched = () => {
@@ -33,9 +35,10 @@ const handleAddToWatched = () => {
         localStorage.setItem(addKey, JSON.stringify(addFilms));
         return true;
     };
-
     updateLocalStorage(filmId, 'watchedFilms', 'queueFilms');
 
+
+    };
 
     // const addToLocalStorage = (film, key) => {
     //     let films = JSON.parse(localStorage.getItem(key)) || [];
@@ -56,7 +59,6 @@ const handleAddToWatched = () => {
     //     }
     // };
     // addToLocalStorage(filmId, 'watchedFilms')
-    };
 
     const handleAddToQueue = () => {
         const filmTitle = document.querySelector(".modal-film-title").dataset.title;
@@ -109,4 +111,3 @@ const handleAddToWatched = () => {
 
 addWatched.addEventListener("click", handleAddToWatched);
 addQueue.addEventListener("click", handleAddToQueue);
-
