@@ -24,6 +24,16 @@ const queueArr = JSON.parse(localStorage.getItem('queueFilms'));
 
 document.addEventListener("DOMContentLoaded", async () => {
     const gallery = document.querySelector(".movies-gallery");
+    gallery.innerHTML = "";
+    watchedBtn.classList.add("active-btn");
+    for (const element of watchArr) {
+      const filmDetails = await getFilmDetails(element);
+      if (filmDetails) {
+          const filmTile = await makeSingleFilmTile(filmDetails);
+          gallery.innerHTML += filmTile;
+      }
+  }
+
     if (!gallery) {
         console.error("Target container not found.");
         return;
