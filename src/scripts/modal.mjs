@@ -22,7 +22,6 @@ document.addEventListener('keydown', (ev) => {
 function toggleModal() {
   modal.classList.toggle('is-hidden');
   document.addEventListener('click', closeModal);
-  console.log('openModal');
 }
 function closeModal(event) {
   if (
