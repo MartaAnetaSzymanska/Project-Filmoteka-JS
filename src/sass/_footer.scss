@@ -18,6 +18,26 @@
     margin: 0 auto;
         word-wrap: break-word;
     max-width: 265px;
+    font-weight: 100;
+}
+.page-link {
+    color: black;
+}
+.btn-primary {
+    background-color: #ff6b08;
+    border-color: #ff6b08;
+}
+.page-item.active .page-link {
+    background-color: #ff6b08;
+    border-color: #ff6b08;
+}
+.page-link:hover {
+    color: #ff6b01;
+    
+    
+}
+.pagination{
+    font-weight: 100;
 }
 
 @media screen and (min-width: 768px) {
