@@ -8,7 +8,6 @@ const modal = document.querySelector('[data-modal]');
 const closeBtn = document.querySelector('[modal-close]');
 const addWatched = document.querySelector('.add-watched-btn');
 const addQueue = document.querySelector('.add-queue-btn');
-const body = document.querySelector('body');
 
 galleryList.addEventListener('click', toggleModal);
 closeBtn.addEventListener('click', toggleModal);
@@ -22,7 +21,6 @@ document.addEventListener('keydown', (ev) => {
 function toggleModal() {
   modal.classList.toggle('is-hidden');
   document.addEventListener('click', closeModal);
-  console.log('openModal');
 }
 function closeModal(event) {
   if (

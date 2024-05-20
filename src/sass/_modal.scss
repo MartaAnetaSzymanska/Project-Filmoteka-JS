@@ -112,13 +112,15 @@
   background: transparent;
   border: 1px solid #000;
 }
-.add-watched-btn:hover, .add-queue-btn:hover,
-.add-watched-btn:focus, .add-queue-btn:focus {
+.add-watched-btn:hover,
+.add-queue-btn:hover,
+.add-watched-btn:focus,
+.add-queue-btn:focus {
   box-shadow: 0 8px 43px 0 rgba(255, 107, 1, 0.6);
   background: #ff6b01;
   border-style: none;
   color: #fff;
-} 
+}
 .add-btn-active {
   box-shadow: 0 8px 43px 0 rgba(255, 107, 1, 0.6);
   background: #ff6b01;
@@ -157,7 +159,7 @@
   .backdrop {
     top: 23%;
     max-width: 90%;
-    height: 60%;
+    height: 70%;
   }
   .modal-film {
     padding: 40px 36px;
