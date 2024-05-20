@@ -3,16 +3,14 @@ const students = document.querySelector('[students-modal-open');
 const closeStudentsBtn = document.querySelector('[students-modal-close]');
 
 students.addEventListener('click', toggleStudentsModal);
+// closeStudentsBtn.addEventListener('click', toggleStudentsModal);
+studentsModal.addEventListener('click', toggleStudentsModal);
+document.addEventListener('keydown', (ev) => {
+  if (ev.key === 'Escape' && !studentsModal.classList.contains('is-hidden')) {
+    toggleStudentsModal();
+  }
+});
 
 function toggleStudentsModal() {
   studentsModal.classList.toggle('is-hidden');
-}
-function closeStudentsModal(event) {
-  if (
-    !studentsModal.classList.contains('is-hidden') &&
-    !studentsModal.contains(event.target)
-  ) {
-    toggleStudentsModal();
-    document.removeEventListener('click', closeStudentsModal);
-  }
 }
