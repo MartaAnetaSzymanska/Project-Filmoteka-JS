@@ -11,7 +11,7 @@ Notify.init({
 });
 // GET TRENDING
 
-const gallery = document.querySelector('ul.gallery');
+// const gallery = document.querySelector('ul.gallery');
 
 //GET FILMS BY QUERY STRING
 
