@@ -72,16 +72,15 @@
   font-size: 12px;
   text-align: center;
   position: relative;
-}
-
-.menu-item:hover,
-.menu-item:focus {
-  color: #fff;
-  text-decoration: none;
-}
-.menu-item:hover,
-.menu-item:focus {
-  color: #fff;
+  &:hover {
+    transform: scale(102%);
+    color: #fff;
+    text-decoration: none;
+  }
+  &:focus {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 .is-active::after {
@@ -216,7 +215,7 @@
 
   .logo {
     gap: 10px;
-            margin-left: 45px;
+    margin-left: 45px;
   }
 
   .logo-text {
@@ -279,5 +278,15 @@
   .queue-btn {
     width: 148px;
     height: 42px;
+    &:hover,
+    &:focus {
+      background: #9d4405;
+      transition: 0.2s;
+    }
   }
+}
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ffffff;
 }
