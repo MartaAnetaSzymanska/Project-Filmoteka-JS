@@ -18,10 +18,12 @@
 }
 .modal-film {
   padding: 48px 30px;
-  background-color: white;
+  background-color: rgb(249, 249, 249);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   overflow: auto;
+  border-radius: 20px;
+  border: 1px solid rgb(233, 233, 233);
 }
 .icon-x {
   width: 30px;
@@ -120,6 +122,7 @@
   background: #ff6b01;
   border-style: none;
   color: #fff;
+  transition: 0.2s;
 }
 .add-btn-active {
   box-shadow: 0 8px 43px 0 rgba(255, 107, 1, 0.6);
