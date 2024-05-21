@@ -42,7 +42,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
+  text-decoration: none !important;
   gap: 8px;
 }
 
@@ -58,6 +58,7 @@
   list-style: none;
   display: flex;
   gap: 40px;
+  margin: 0;
 }
 
 .menu-item {
@@ -196,6 +197,14 @@
   border-style: none;
 }
 
+.watched-btn, .queue-btn {
+  &:hover
+   {
+      background: #9d4405;
+      transition: 0.2s;
+    }
+}
+
 @media (min-width: 768px) {
   .container {
     padding: 0 32px;
@@ -278,11 +287,7 @@
   .queue-btn {
     width: 148px;
     height: 42px;
-    &:hover,
-    &:focus {
-      background: #9d4405;
-      transition: 0.2s;
-    }
+    
   }
 }
 
